@@ -1,6 +1,5 @@
 module GuessChecker
 
-
   def check_for_correct_letters(user_input)
     format_input = user_input.split('')
     correct_letters = format_input & @answer
