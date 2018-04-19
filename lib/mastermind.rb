@@ -1,6 +1,6 @@
 class Mastermind
 puts "\e[H\e[2J"
-puts  'Welcome to MASTERMIND. Would you like to (p)lay, read the (i)nstructions, or (q)uit?'
+puts  "Welcome to MASTERMIND. Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
 
   def start
     user_input = gets.chomp.downcase.strip
