@@ -1,7 +1,6 @@
-require 'pry'
-require 'time'
 require './lib/guess_checker'
 require './lib/responder'
+require 'time'
 
 class Play
   include AnswerGenerator
@@ -24,6 +23,7 @@ class Play
       puts @answer
       if user_input == 'c' || user_input == 'cheat'
         puts cheat_response
+        Mastermind.new.start
       elsif user_input.length < 4
         puts short_response
       elsif user_input.length > 4
@@ -31,9 +31,10 @@ class Play
       elsif user_input == @answer.join
         @guesses << user_input
         puts win_response
+        Mastermind.new.start
       else
         @guesses << user_input
-        puts guess_feedback_response(user_input)
+        puts feedback_response(user_input)
       end
       user_input = gets.chomp.downcase.strip
     end
@@ -41,6 +42,6 @@ class Play
   end
 
   def calculate_time_spent
-    Time.now - @start_time
+    (Time.now - @start_time).round
   end
 end
